@@ -7,7 +7,7 @@ RUN yum -y install epel-release && \
 #Packages
 RUN yum -y install audit-libs-devel.x86 \
                    autoconf.noarch \
-	           automake \
+                   automake \
                    bc \
                    e2fsprogs-devel \
                    e2fsprogs-devel.i686 \
@@ -54,7 +54,7 @@ RUN wget http://dl.fedoraproject.org/pub/epel/6/x86_64/Packages/c/CUnit-2.1.2-6.
 RUN wget http://dl.fedoraproject.org/pub/epel/6/x86_64/Packages/c/CUnit-devel-2.1.2-6.el6.x86_64.rpm
 RUN yum localinstall -y CUnit*
 #Fix locale info
-RUN localedef -i en_US -f UTF-8 en_US.UTF-8 
+RUN localedef -i en_US -f UTF-8 en_US.UTF-8
 
 #Python modules needed
 RUN pip install pexpect
@@ -63,7 +63,7 @@ COPY wheel-sudoers /etc/sudoers.d/
 
 #Add non-root user and set it as default user/workdir
 RUN groupadd -g 600 testuser
-RUN useradd -s /bin/bash -G adm,wheel,systemd-journal -g testuser -u 600 -m testuser 
+RUN useradd -s /bin/bash -G adm,wheel,systemd-journal -g testuser -u 600 -m testuser
 WORKDIR /home/testuser/rpmbuild
 #Proxy stuff
 ENV http_proxy http://proxy-wsa.esl.cisco.com:80
