@@ -32,20 +32,15 @@ Requires: %{name}-libs%{?_isa} = %{epoch}:%{version}-%{release}
 Patch1: safec-4.0.37-i686tests.patch
 
 %description
-The OpenSSL toolkit provides support for secure communications between
-machines. OpenSSL includes a certificate management tool and shared
-libraries which provide various cryptographic algorithms and
-protocols.
+A C Library that utilizes checks for to help protect against runtime violatons
 
 %package libs
-Summary: A general purpose cryptography library with TLS implementation
+Summary: A C Library that utilizes checks for to help protect against runtime violatons
 Group: System Environment/Libraries
 Provides: ciscosafec = %{ciscosafec_version}
 
 %description libs
-OpenSSL is a toolkit for supporting cryptography. The openssl-libs
-package contains the libraries that are used by various applications which
-support cryptographic algorithms and protocols.
+A C Library that utilizes checks for to help protect against runtime violatons.
 
 %prep
 ##################### untar to ciscosafec
