@@ -1,0 +1,62 @@
+diff --git a/test/test_strcmp_s.c b/test/test_strcmp_s.c
+index 1ffdac4..3be2013 100644
+--- a/test/test_strcmp_s.c
++++ b/test/test_strcmp_s.c
+@@ -171,7 +171,7 @@ static void no_contraint_violations (void)
+ 
+     rc = strcmp_s(str1, LEN, str2, &ind);
+     CU_ASSERT_EQUAL(rc, EOK);
+-#if defined (_WIN32) || (CISCOSAFEC_ANDROID_OS)
++#if defined (_WIN32) || (CISCOSAFEC_ANDROID_OS) || (LINUX32)
+     CU_ASSERT_EQUAL(ind, 1);
+ #else
+     CU_ASSERT_EQUAL(ind, 'p' - 'P');
+@@ -199,7 +199,7 @@ static void no_contraint_violations (void)
+ 
+     rc = strcmp_s(str1, LEN, str2, &ind);
+     CU_ASSERT_EQUAL(rc, EOK);
+-#if defined (_WIN32) || (CISCOSAFEC_ANDROID_OS)
++#if defined (_WIN32) || (CISCOSAFEC_ANDROID_OS) || (LINUX32)
+     CU_ASSERT_EQUAL(ind, 1);
+ #else
+     CU_ASSERT_EQUAL(ind, 'i' - 'e');
+@@ -216,7 +216,7 @@ static void no_contraint_violations (void)
+ 
+     rc = strcmp_s(str1, LEN, str2, &ind);
+     CU_ASSERT_EQUAL(rc, EOK);
+-#if defined (_WIN32) || (CISCOSAFEC_ANDROID_OS)
++#if defined (_WIN32) || (CISCOSAFEC_ANDROID_OS) || (LINUX32)
+     CU_ASSERT_EQUAL(ind, -1);
+ #else
+     CU_ASSERT_EQUAL(ind, '1' - 'i');
+diff --git a/test/test_strncmp_s.c b/test/test_strncmp_s.c
+index ed13d5f..2f6727e 100644
+--- a/test/test_strncmp_s.c
++++ b/test/test_strncmp_s.c
+@@ -207,7 +207,7 @@ static void no_constraint_violations (void)
+ 
+     rc = strncmp_s(str1, LEN, str2, 10, &ind);
+     CU_ASSERT_EQUAL(rc, EOK);
+-#ifdef _WIN32
++#if defined (_WIN32) || (LINUX32)
+     CU_ASSERT_EQUAL(ind, 1);
+ #else
+     CU_ASSERT_EQUAL(ind, 'p' - 'P');
+@@ -226,7 +226,7 @@ static void no_constraint_violations (void)
+ 
+     rc = strncmp_s(str1, LEN, str2, 6, &ind);
+     CU_ASSERT_EQUAL(rc, EOK);
+-#ifdef _WIN32
++#if defined (_WIN32) || (LINUX32)
+     CU_ASSERT_EQUAL(ind, 1);
+ #else
+     CU_ASSERT_EQUAL(ind, 'i' - 'e');
+@@ -245,7 +245,7 @@ static void no_constraint_violations (void)
+ 
+     rc = strncmp_s(str1, LEN, str2, 10, &ind);
+     CU_ASSERT_EQUAL(rc, EOK);
+-#ifdef _WIN32
++#if defined (_WIN32) || (LINUX32)
+     CU_ASSERT_EQUAL(ind, -1);
+ #else
+     CU_ASSERT_EQUAL(ind, '1' - 'i');
