@@ -65,11 +65,7 @@ COPY wheel-sudoers /etc/sudoers.d/
 RUN groupadd -g 600 testuser
 RUN useradd -s /bin/bash -G adm,wheel,systemd-journal -g testuser -u 600 -m testuser
 WORKDIR /home/testuser/rpmbuild
-#Proxy stuff
-ENV http_proxy http://proxy-wsa.esl.cisco.com:80
-ENV https_proxy http://proxy-wsa.esl.cisco.com:80
-ENV no_proxy cisco.com
-ENV MICRO 1
+
 
 #RPM macros
 #COPY rpmmacros.template /tmp/

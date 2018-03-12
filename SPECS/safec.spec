@@ -12,9 +12,6 @@
 #The epoch number
 %define epoch_number %(cat %{_topdir}/build.properties | grep ^EPOCH | awk -F'[=]' '{print $2}')
 
-#Source base url
-%define source_base_url %(cat %{_topdir}/build.properties | grep ^SOURCE_BASE_URL | awk -F'[=]' '{print $2}')
-
 %global _performance_build 1
 
 Summary: To help enforce better C programming practices
@@ -22,7 +19,7 @@ Name: safec
 Version: %{ciscosafec_version}
 Release: %{release_number}%{?dist}
 Epoch: %{epoch_number}
-Source: %{source_base_url}/ciscosafec-%{ciscosafec_version}.tar.gz
+Source: ciscosafec-%{ciscosafec_version}.tar.gz
 License: SafeC
 Group: System Environment/Libraries
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
